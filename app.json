@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "Hidden Camera Finder",
+    "slug": "hidden-camera-finder",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0B0F14",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0B0F14"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSCameraUsageDescription": "The lens scan uses the camera and torch to look for light reflecting back off a hidden camera lens. Nothing is recorded and nothing leaves your phone.",
+        "NSMotionUsageDescription": "The magnetometer is used to detect nearby ferrous metal so the app can tell you where to point the lens scan."
+      }
+    },
+    "android": {
+      "package": "com.hiddencamerafinder.app",
+      "permissions": ["CAMERA", "VIBRATE"],
+      "blockedPermissions": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Hidden Camera Finder to use the camera and torch to scan for hidden camera lenses.",
+          "recordAudioAndroid": false
+        }
+      ]
+    ]
+  }
+}
