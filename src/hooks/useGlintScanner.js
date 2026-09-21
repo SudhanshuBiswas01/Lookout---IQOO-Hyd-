@@ -69,13 +69,15 @@ export function useGlintScanner(active, cameraRef, onGlint) {
 
 			try {
 				const cam = cameraRef.current
-				if (cam) {
+				if (cam && typeof cam.takePictureAsync === "function") {
 					const shot = await cam.takePictureAsync({
 						quality: GLINT.CAPTURE_QUALITY,
 						skipProcessing: true,
 						shutterSound: false,
 						exif: false,
 					})
+
+					if (stopped || !shot || !shot.uri) return
 
 					const small = await ImageManipulator.manipulateAsync(
 						shot.uri,
@@ -94,6 +96,8 @@ export function useGlintScanner(active, cameraRef, onGlint) {
 						},
 					)
 
+					if (stopped || !small || !small.base64) return
+
 					const raw = jpeg.decode(
 						new Uint8Array(decodeBase64(small.base64)),
 						{ useTArray: true },
@@ -102,6 +106,7 @@ export function useGlintScanner(active, cameraRef, onGlint) {
 					const gray = toGrayscale(raw.data, raw.width, raw.height)
 					const result = detectGlints(gray, raw.width, raw.height)
 
+					if (stopped) return
 					const now = Date.now()
 					const all = updateTracks(trackerRef.current, result.candidates, now)
 					const live = visibleTracks(all)

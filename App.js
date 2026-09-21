@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import HomeScreen from "./src/screens/HomeScreen.js"
 import ResultsScreen from "./src/screens/ResultsScreen.js"
 import SweepScreen from "./src/screens/SweepScreen.js"
+import { SafeAreaProvider } from "react-native-safe-area-context"
 import { SessionProvider } from "./src/state/SessionContext.js"
 import { colors } from "./src/theme.js"
 
@@ -27,34 +28,36 @@ const navTheme = {
 
 export default function App() {
 	return (
-		<SessionProvider>
-			<NavigationContainer theme={navTheme}>
-				<StatusBar style="light" />
-				<Stack.Navigator
-					screenOptions={{
-						headerStyle: { backgroundColor: colors.bg },
-						headerTintColor: colors.text,
-						headerShadowVisible: false,
-						contentStyle: { backgroundColor: colors.bg },
-					}}
-				>
-					<Stack.Screen
-						name="Home"
-						component={HomeScreen}
-						options={{ headerShown: false }}
-					/>
-					<Stack.Screen
-						name="Sweep"
-						component={SweepScreen}
-						options={{ title: "Scanning" }}
-					/>
-					<Stack.Screen
-						name="Results"
-						component={ResultsScreen}
-						options={{ title: "Results" }}
-					/>
-				</Stack.Navigator>
-			</NavigationContainer>
-		</SessionProvider>
+		<SafeAreaProvider>
+			<SessionProvider>
+				<NavigationContainer theme={navTheme}>
+					<StatusBar style="light" />
+					<Stack.Navigator
+						screenOptions={{
+							headerStyle: { backgroundColor: colors.bg },
+							headerTintColor: colors.text,
+							headerShadowVisible: false,
+							contentStyle: { backgroundColor: colors.bg },
+						}}
+					>
+						<Stack.Screen
+							name="Home"
+							component={HomeScreen}
+							options={{ headerShown: false }}
+						/>
+						<Stack.Screen
+							name="Sweep"
+							component={SweepScreen}
+							options={{ title: "Scanning" }}
+						/>
+						<Stack.Screen
+							name="Results"
+							component={ResultsScreen}
+							options={{ title: "Results" }}
+						/>
+					</Stack.Navigator>
+				</NavigationContainer>
+			</SessionProvider>
+		</SafeAreaProvider>
 	)
 }
