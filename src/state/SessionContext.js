@@ -25,7 +25,7 @@ export function SessionProvider({ children }) {
 	const addSpot = useCallback((signals, evidence, mode) => {
 		const { verdict, headline, reasons, copy } = classifySignals(signals)
 		const spot = {
-			id: nextSpotId++,
+			id: `spot_${Date.now()}_${nextSpotId++}`,
 			timestamp: Date.now(),
 			mode,
 			signals,
@@ -40,7 +40,6 @@ export function SessionProvider({ children }) {
 	}, [])
 
 	const clearSession = useCallback(() => {
-		nextSpotId = 1
 		setSpots([])
 	}, [])
 

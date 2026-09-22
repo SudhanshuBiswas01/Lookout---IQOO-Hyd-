@@ -73,7 +73,7 @@ export default function ResultsScreen({ navigation }) {
 						{open && (
 							<View style={styles.evidence}>
 								{spot.reasons.map((r, i) => (
-									<Text key={i} style={styles.reason}>
+									<Text key={`${spot.id}-r-${i}`} style={styles.reason}>
 										{r}
 									</Text>
 								))}

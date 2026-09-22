@@ -34,12 +34,15 @@ export default function SweepScreen({ route, navigation }) {
 	const [permission, requestPermission] = useCameraPermissions()
 	const cameraRef = useRef(null)
 	const fusionRef = useRef(createFusionState())
+	const logCounter = useRef(0)
 	const [log, setLog] = useState([])
 
 	const { spots, addSpot, verdict } = useSession()
 
 	const pushLog = useCallback((text) => {
-		setLog((prev) => [{ at: Date.now(), text }, ...prev].slice(0, 20))
+		logCounter.current += 1
+		const id = `${Date.now()}_${logCounter.current}`
+		setLog((prev) => [{ id, at: Date.now(), text }, ...prev].slice(0, 20))
 	}, [])
 
 	// ---- magnetometer ------------------------------------------------------
@@ -219,7 +222,7 @@ export default function SweepScreen({ route, navigation }) {
 					<View style={styles.logBox}>
 						<Text style={styles.logTitle}>Live log</Text>
 						{log.map((l) => (
-							<Text key={l.at + l.text} style={styles.logLine}>
+							<Text key={l.id} style={styles.logLine}>
 								{new Date(l.at).toLocaleTimeString()} - {l.text}
 							</Text>
 						))}
