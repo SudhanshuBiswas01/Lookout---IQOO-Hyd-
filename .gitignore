@@ -7,3 +7,8 @@ web-build/
 *.orig.*
 .env
 .env.local
+
+# Pitch decks, reference dossiers, and presentation scripts
+LOOKOUT_PITCH_DECK_DOSSIER.*
+LOOKOUT_PROJECT_REFERENCE.*
+LOOKOUT_VIDEO_SCRIPT.*
