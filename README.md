@@ -1,12 +1,28 @@
-# Hidden Camera Finder
+<div align="center">
 
-An offline mobile app that helps you check a hotel room, trial room or rental
-space for hidden cameras using nothing but the phone's own sensors.
+# 👁️ Lookout: Hidden Camera Finder
+**Real Physics. Zero Cloud. Verifiable Privacy on Your Smartphone.**
 
-No internet. No backend. No cloud AI. No accounts. Everything runs on-device,
-and the app works in airplane mode.
+[![Offline](https://img.shields.io/badge/Privacy-100%25%20Air--Gapped-success?style=for-the-badge&logo=guardrails&logoColor=white)](https://github.com/SudhanshuBiswas01/Lookout---IQOO-Hyd-)
+[![Tests](https://img.shields.io/badge/Tests-97%20Passed-brightgreen?style=for-the-badge&logo=checkmarx&logoColor=white)](https://github.com/SudhanshuBiswas01/Lookout---IQOO-Hyd-)
+[![Engine](https://img.shields.io/badge/Platform-React%20Native%20%7C%20Expo-000000?style=for-the-badge&logo=expo&logoColor=white)](https://expo.dev)
+[![Event](https://img.shields.io/badge/iQOO%20City%20Battles-Hyderabad%202026-FF6A00?style=for-the-badge)](https://github.com/SudhanshuBiswas01/Lookout---IQOO-Hyd-)
 
-Built for the iQOO City Battles, Hyderabad, 26-27 September 2026.
+<br />
+
+<p align="center">
+  <b>An offline mobile app that helps you check a hotel room, trial room, or rental space for hidden cameras using nothing but the phone's own sensors.</b>
+</p>
+
+<p align="center">
+  <i>🔒 No internet &nbsp;•&nbsp; ⚡ No backend &nbsp;•&nbsp; 🚫 No cloud AI &nbsp;•&nbsp; 👤 No accounts &nbsp;•&nbsp; ✈️ 100% Airplane Mode</i>
+</p>
+
+<p align="center">
+  <sub>Built for the <b>iQOO City Battles, Hyderabad</b> • 26–27 September 2026</sub>
+</p>
+
+</div>
 
 ---
 
